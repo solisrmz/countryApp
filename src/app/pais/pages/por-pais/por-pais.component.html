@@ -1,0 +1,16 @@
+<h2>Por país</h2>
+<hr/>
+<div class="row">
+    <div class="col">
+        <app-input (onEnter)="buscar($event)" (onDebounce)="buscar($event)"></app-input>
+    </div>
+</div>
+<hr/>
+<div class="aler alert-danger" *ngIf="error">
+    No hay resultados para esta
+</div>
+<div class="row">
+    <div class="col">
+        <app-tabla [paises]="paises"></app-tabla>
+    </div>
+</div>

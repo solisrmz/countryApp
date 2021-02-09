@@ -1,0 +1,20 @@
+<table class="table table-bordered">
+    <thead>
+        <th>#</th>
+        <th>Bandera</th>
+        <th>Nombre</th>
+        <th>Población</th>
+        <th>Detalles</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let pais of paises; let i = index">
+            <td>{{i + 1}}</td>
+            <td>
+                <img class="img-flag" [src]="pais.flag" alt="">
+            </td>
+            <td>{{pais.name}}</td>
+            <td>{{pais.population | number}}</td>
+            <td><button (click)="verPais(pais.alpha2Code)" class="btn btn-success">Detalles</button></td>
+        </tr>
+    </tbody>
+</table>
