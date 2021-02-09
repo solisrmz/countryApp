@@ -8,12 +8,14 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { InputComponent } from './components/input/input.component';
 import { TablaComponent } from './components/tabla/tabla.component'
+import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [PorCapitalComponent, PorPaisComponent, PorRegionComponent, VerPaisComponent, InputComponent, TablaComponent],
   imports: [
     HttpClientModule,
     CommonModule, 
-    FormsModule
+    FormsModule,
+    RouterModule
   ],
   exports: [PorCapitalComponent, PorRegionComponent, PorCapitalComponent, VerPaisComponent]
 })

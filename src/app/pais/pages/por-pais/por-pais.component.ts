@@ -1,18 +1,24 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Pais } from '../../interfaces/pais.interface';
 import { PaisesService } from '../../services/paises.service'
 
 @Component({
   selector: 'app-por-pais',
   templateUrl: './por-pais.component.html',
-  styles: [
+  styles: [`
+    li {
+      cursor: pointer;
+    }
+  `
   ]
 })
 export class PorPaisComponent implements OnInit {
   paises: Pais[] = [];
+  sugeridos: Pais[] = [];
   error: boolean = false;
   termino: string = '';
-  constructor(private paisService: PaisesService) { }
+  constructor(private paisService: PaisesService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -31,5 +37,10 @@ export class PorPaisComponent implements OnInit {
 
   sugerencia(termino: string){
     this.error = false;
+    this.paisService.porNombre(termino).subscribe( data => this.sugeridos = data.splice(0,3), 
+      (err) => {
+        this.sugeridos = [];
+      }
+    );
   }
 }

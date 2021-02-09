@@ -2,9 +2,12 @@
 <hr/>
 <div class="row">
     <div class="col">
-        <app-input (onEnter)="buscar($event)" (onDebounce)="buscar($event)"></app-input>
+        <app-input (onEnter)="buscar($event)" (onDebounce)="sugerencia($event)"></app-input>
     </div>
 </div>
+<ul class="list-group">
+    <li *ngFor="let pais of sugeridos" class="list-group-item"><a [routerLink]="['/ver-pais', pais.alpha2Code]" class="nav-link">{{pais.name}}</a></li>
+</ul>
 <hr/>
 <div class="aler alert-danger" *ngIf="error">
     No hay resultados para esta
