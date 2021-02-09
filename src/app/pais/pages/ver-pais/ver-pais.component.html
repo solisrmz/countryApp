@@ -1,7 +1,22 @@
-<h2>Ver país</h2>
-<div class="row">
-    <div class="col-3">
-
+<div class="alert alert-danger" *ngIf="!pais; else divPais"> Cargando </div>
+<ng-template #divPais>
+    <h2>Ver país</h2>
+    <div class="row">
+        <div class="col-4">
+            <img class="flag" [src]="pais.flag" alt="">
+        </div>
+        <div class="col">
+            <h2>{{pais.name}}</h2>
+            <hr/>
+            <h3>Informacio</h3>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    {{pais.population | number}}
+                </li>
+                <li class="list-group-item">
+                    {{pais.capital}}
+                </li>
+            </ul>
+        </div>
     </div>
-    <div class="col"></div>
-</div>
+</ng-template>
